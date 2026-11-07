@@ -1,0 +1,345 @@
+[
+  {
+    "text": "Mỗi giây, một tác vụ mới xuất hiện. Máy chủ nào sẽ nhận công việc đó?",
+    "startMs": 0,
+    "endMs": 6250,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Mỗi máy chủ có một trọng số. Mỗi tác vụ có một thời gian xử lý riêng.",
+    "startMs": 6250,
+    "endMs": 12500,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Nếu tất cả máy chủ đều bận, tác vụ phải chờ đến khi có máy rảnh.",
+    "startMs": 12500,
+    "endMs": 18750,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Ta sẽ mô phỏng quy tắc này, rồi biến nó thành thuật toán hai heap.",
+    "startMs": 18750,
+    "endMs": 25000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Tác vụ j đến ở giây j. Giá trị tasks[j] là số giây cần xử lý.",
+    "startMs": 25000,
+    "endMs": 31667,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Thời điểm đến và thời điểm bắt đầu có thể khác nhau: tác vụ có thể phải chờ.",
+    "startMs": 31667,
+    "endMs": 38333,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Chỉ những máy chủ đang rảnh mới được tham gia lựa chọn.",
+    "startMs": 38333,
+    "endMs": 45000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Trong nhóm rảnh, ưu tiên trọng số nhỏ nhất. Nếu bằng nhau, chọn chỉ số nhỏ nhất.",
+    "startMs": 45000,
+    "endMs": 51667,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Trọng số chỉ dùng để chọn máy chủ; nó không làm công việc chạy nhanh hay chậm hơn.",
+    "startMs": 51667,
+    "endMs": 58333,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Nếu bắt đầu lúc t, máy chủ rảnh lại lúc t cộng thời gian xử lý.",
+    "startMs": 58333,
+    "endMs": 65000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Ba máy chủ có trọng số 3, 3 và 2. Tác vụ đầu tiên đến ở giây không.",
+    "startMs": 65000,
+    "endMs": 71875,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Máy chủ số 2 có trọng số nhỏ nhất nên nhận tác vụ 0, và rảnh lại ở giây 1.",
+    "startMs": 71875,
+    "endMs": 78750,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Giây 1, máy chủ số 2 nhận tác vụ 1, có thời gian xử lý hai giây.",
+    "startMs": 78750,
+    "endMs": 85625,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Giây 2, máy chủ số 2 vẫn bận. Hai máy còn lại bằng trọng số, nên chọn số 0.",
+    "startMs": 85625,
+    "endMs": 92500,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Giây 3, máy chủ số 2 rảnh trở lại và nhận tác vụ 3.",
+    "startMs": 92500,
+    "endMs": 99375,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Giây 4, chỉ máy chủ số 1 còn rảnh. Nó nhận tác vụ có thời gian xử lý một giây.",
+    "startMs": 99375,
+    "endMs": 106250,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Giây 5, cả ba máy cùng rảnh. Trọng số nhỏ nhất lại thuộc về máy chủ số 2.",
+    "startMs": 106250,
+    "endMs": 113125,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Đọc các lựa chọn theo thứ tự tác vụ, ta thu được đáp án: 2, 2, 0, 2, 1, 2.",
+    "startMs": 113125,
+    "endMs": 120000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Cách trực tiếp là quét mọi máy chủ để tìm máy rảnh tốt nhất cho từng tác vụ.",
+    "startMs": 120000,
+    "endMs": 126250,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Với hai trăm nghìn máy và hai trăm nghìn tác vụ, có thể phải xét bốn mươi tỷ lần.",
+    "startMs": 126250,
+    "endMs": 132500,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Ta chỉ cần trả lời nhanh hai câu: máy rảnh nào tốt nhất, và máy bận nào sắp xong?",
+    "startMs": 132500,
+    "endMs": 138750,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Hai câu hỏi, hai tiêu chí ưu tiên. Đó là lý do ta dùng hai min-heap.",
+    "startMs": 138750,
+    "endMs": 145000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Heap rảnh lưu trọng số và chỉ số. Phần tử ở đỉnh là máy chủ nên chọn tiếp theo.",
+    "startMs": 145000,
+    "endMs": 152143,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Heap bận lưu thời điểm hoàn thành và chỉ số. Đỉnh cho biết khi nào có máy sẵn sàng.",
+    "startMs": 152143,
+    "endMs": 159286,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Lấy một máy từ heap rảnh để nhận việc, rồi đưa nó vào heap bận với thời điểm kết thúc mới.",
+    "startMs": 159286,
+    "endMs": 166429,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Khi đồng hồ tiến lên, chuyển mọi máy có thời điểm kết thúc không vượt quá hiện tại về heap rảnh.",
+    "startMs": 166429,
+    "endMs": 173571,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Các hàng đang được vẽ theo thứ tự ưu tiên để dễ đọc; mảng bên trong heap không cần được sắp xếp toàn bộ.",
+    "startMs": 173571,
+    "endMs": 180714,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Duyệt các tác vụ theo chỉ số đã giữ đúng thứ tự chờ. Không cần tạo thêm hàng đợi tác vụ.",
+    "startMs": 180714,
+    "endMs": 187857,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Nếu heap rảnh trống, đỉnh heap bận cho ta thời điểm có thể tiếp tục.",
+    "startMs": 187857,
+    "endMs": 195000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Xét hai máy có trọng số 5 và 1, cùng bốn tác vụ có thời gian 5, 4, 1, 1.",
+    "startMs": 195000,
+    "endMs": 202500,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Tác vụ 0 chạy trên máy số 1 đến giây 5. Tác vụ 1 chạy trên máy số 0 cũng đến giây 5.",
+    "startMs": 202500,
+    "endMs": 210000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Tác vụ 2 đến ở giây 2, khi cả hai máy đều bận. Ta không cần đếm qua từng giây.",
+    "startMs": 210000,
+    "endMs": 217500,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Đồng hồ nhảy thẳng tới giây 5: thời điểm hoàn thành sớm nhất trong heap bận.",
+    "startMs": 217500,
+    "endMs": 225000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Quan trọng: cả hai máy đều hoàn thành ở giây 5. Hãy giải phóng tất cả trước khi chọn.",
+    "startMs": 225000,
+    "endMs": 232500,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Máy số 1 có trọng số nhỏ hơn, nên nhận tác vụ 2 trước.",
+    "startMs": 232500,
+    "endMs": 240000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Tác vụ 3 cũng đã đến và đang chờ. Máy số 0 nhận nó ngay trong cùng giây 5.",
+    "startMs": 240000,
+    "endMs": 247500,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Hai tác vụ chờ bắt đầu cùng lúc, nhưng vẫn được gán theo đúng thứ tự đến.",
+    "startMs": 247500,
+    "endMs": 255000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Duyệt tác vụ j theo thứ tự. Đầu tiên, lấy thời gian lớn hơn giữa hiện tại và j.",
+    "startMs": 255000,
+    "endMs": 262857,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Sau đó, trả mọi máy đã hoàn thành về heap rảnh. Điều kiện là kết thúc nhỏ hơn hoặc bằng thời gian.",
+    "startMs": 262857,
+    "endMs": 270714,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Nếu heap rảnh vẫn trống, nhảy đến thời điểm hoàn thành sớm nhất.",
+    "startMs": 270714,
+    "endMs": 278571,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Sau bước nhảy, lại giải phóng tất cả máy đã hoàn thành; không chỉ lấy ra một máy.",
+    "startMs": 278571,
+    "endMs": 286429,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Lấy đỉnh heap rảnh, ghi chỉ số của máy vào đáp án, rồi tính thời điểm kết thúc mới.",
+    "startMs": 286429,
+    "endMs": 294286,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Đưa máy đó sang heap bận. Các tác vụ tiếp theo tiếp tục cùng quy trình.",
+    "startMs": 294286,
+    "endMs": 302143,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Thời gian có thể lên tới bốn mươi tỷ. Trong C++ hoặc Java, cần số nguyên 64 bit.",
+    "startMs": 302143,
+    "endMs": 310000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Thứ tự tác vụ được giữ bằng cách duyệt từ trái sang phải.",
+    "startMs": 310000,
+    "endMs": 316000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Heap bận cho biết khi nào tiếp tục được; heap rảnh quyết định chọn máy chủ nào.",
+    "startMs": 316000,
+    "endMs": 322000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Sau khi nhảy thời gian, giải phóng toàn bộ máy đã xong rồi mới chọn.",
+    "startMs": 322000,
+    "endMs": 328000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Độ phức tạp là O của n cộng m nhân log n. Bộ nhớ phụ trợ O của n, chưa tính đáp án.",
+    "startMs": 328000,
+    "endMs": 334000,
+    "timestampMs": null,
+    "confidence": null
+  },
+  {
+    "text": "Tách đúng hai loại ưu tiên, bài toán mô phỏng trở thành một lịch sự kiện hiệu quả.",
+    "startMs": 334000,
+    "endMs": 340000,
+    "timestampMs": null,
+    "confidence": null
+  }
+]

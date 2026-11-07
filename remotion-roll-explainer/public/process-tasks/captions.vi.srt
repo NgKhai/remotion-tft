@@ -1,0 +1,195 @@
+1
+00:00:00,000 --> 00:00:06,250
+Mỗi giây, một tác vụ mới xuất hiện. Máy chủ nào sẽ nhận công việc đó?
+
+2
+00:00:06,250 --> 00:00:12,500
+Mỗi máy chủ có một trọng số. Mỗi tác vụ có một thời gian xử lý riêng.
+
+3
+00:00:12,500 --> 00:00:18,750
+Nếu tất cả máy chủ đều bận, tác vụ phải chờ đến khi có máy rảnh.
+
+4
+00:00:18,750 --> 00:00:25,000
+Ta sẽ mô phỏng quy tắc này, rồi biến nó thành thuật toán hai heap.
+
+5
+00:00:25,000 --> 00:00:31,667
+Tác vụ j đến ở giây j. Giá trị tasks[j] là số giây cần xử lý.
+
+6
+00:00:31,667 --> 00:00:38,333
+Thời điểm đến và thời điểm bắt đầu có thể khác nhau: tác vụ có thể phải chờ.
+
+7
+00:00:38,333 --> 00:00:45,000
+Chỉ những máy chủ đang rảnh mới được tham gia lựa chọn.
+
+8
+00:00:45,000 --> 00:00:51,667
+Trong nhóm rảnh, ưu tiên trọng số nhỏ nhất. Nếu bằng nhau, chọn chỉ số nhỏ nhất.
+
+9
+00:00:51,667 --> 00:00:58,333
+Trọng số chỉ dùng để chọn máy chủ; nó không làm công việc chạy nhanh hay chậm hơn.
+
+10
+00:00:58,333 --> 00:01:05,000
+Nếu bắt đầu lúc t, máy chủ rảnh lại lúc t cộng thời gian xử lý.
+
+11
+00:01:05,000 --> 00:01:11,875
+Ba máy chủ có trọng số 3, 3 và 2. Tác vụ đầu tiên đến ở giây không.
+
+12
+00:01:11,875 --> 00:01:18,750
+Máy chủ số 2 có trọng số nhỏ nhất nên nhận tác vụ 0, và rảnh lại ở giây 1.
+
+13
+00:01:18,750 --> 00:01:25,625
+Giây 1, máy chủ số 2 nhận tác vụ 1, có thời gian xử lý hai giây.
+
+14
+00:01:25,625 --> 00:01:32,500
+Giây 2, máy chủ số 2 vẫn bận. Hai máy còn lại bằng trọng số, nên chọn số 0.
+
+15
+00:01:32,500 --> 00:01:39,375
+Giây 3, máy chủ số 2 rảnh trở lại và nhận tác vụ 3.
+
+16
+00:01:39,375 --> 00:01:46,250
+Giây 4, chỉ máy chủ số 1 còn rảnh. Nó nhận tác vụ có thời gian xử lý một giây.
+
+17
+00:01:46,250 --> 00:01:53,125
+Giây 5, cả ba máy cùng rảnh. Trọng số nhỏ nhất lại thuộc về máy chủ số 2.
+
+18
+00:01:53,125 --> 00:02:00,000
+Đọc các lựa chọn theo thứ tự tác vụ, ta thu được đáp án: 2, 2, 0, 2, 1, 2.
+
+19
+00:02:00,000 --> 00:02:06,250
+Cách trực tiếp là quét mọi máy chủ để tìm máy rảnh tốt nhất cho từng tác vụ.
+
+20
+00:02:06,250 --> 00:02:12,500
+Với hai trăm nghìn máy và hai trăm nghìn tác vụ, có thể phải xét bốn mươi tỷ lần.
+
+21
+00:02:12,500 --> 00:02:18,750
+Ta chỉ cần trả lời nhanh hai câu: máy rảnh nào tốt nhất, và máy bận nào sắp xong?
+
+22
+00:02:18,750 --> 00:02:25,000
+Hai câu hỏi, hai tiêu chí ưu tiên. Đó là lý do ta dùng hai min-heap.
+
+23
+00:02:25,000 --> 00:02:32,143
+Heap rảnh lưu trọng số và chỉ số. Phần tử ở đỉnh là máy chủ nên chọn tiếp theo.
+
+24
+00:02:32,143 --> 00:02:39,286
+Heap bận lưu thời điểm hoàn thành và chỉ số. Đỉnh cho biết khi nào có máy sẵn sàng.
+
+25
+00:02:39,286 --> 00:02:46,429
+Lấy một máy từ heap rảnh để nhận việc, rồi đưa nó vào heap bận với thời điểm kết thúc mới.
+
+26
+00:02:46,429 --> 00:02:53,571
+Khi đồng hồ tiến lên, chuyển mọi máy có thời điểm kết thúc không vượt quá hiện tại về heap rảnh.
+
+27
+00:02:53,571 --> 00:03:00,714
+Các hàng đang được vẽ theo thứ tự ưu tiên để dễ đọc; mảng bên trong heap không cần được sắp xếp toàn bộ.
+
+28
+00:03:00,714 --> 00:03:07,857
+Duyệt các tác vụ theo chỉ số đã giữ đúng thứ tự chờ. Không cần tạo thêm hàng đợi tác vụ.
+
+29
+00:03:07,857 --> 00:03:15,000
+Nếu heap rảnh trống, đỉnh heap bận cho ta thời điểm có thể tiếp tục.
+
+30
+00:03:15,000 --> 00:03:22,500
+Xét hai máy có trọng số 5 và 1, cùng bốn tác vụ có thời gian 5, 4, 1, 1.
+
+31
+00:03:22,500 --> 00:03:30,000
+Tác vụ 0 chạy trên máy số 1 đến giây 5. Tác vụ 1 chạy trên máy số 0 cũng đến giây 5.
+
+32
+00:03:30,000 --> 00:03:37,500
+Tác vụ 2 đến ở giây 2, khi cả hai máy đều bận. Ta không cần đếm qua từng giây.
+
+33
+00:03:37,500 --> 00:03:45,000
+Đồng hồ nhảy thẳng tới giây 5: thời điểm hoàn thành sớm nhất trong heap bận.
+
+34
+00:03:45,000 --> 00:03:52,500
+Quan trọng: cả hai máy đều hoàn thành ở giây 5. Hãy giải phóng tất cả trước khi chọn.
+
+35
+00:03:52,500 --> 00:04:00,000
+Máy số 1 có trọng số nhỏ hơn, nên nhận tác vụ 2 trước.
+
+36
+00:04:00,000 --> 00:04:07,500
+Tác vụ 3 cũng đã đến và đang chờ. Máy số 0 nhận nó ngay trong cùng giây 5.
+
+37
+00:04:07,500 --> 00:04:15,000
+Hai tác vụ chờ bắt đầu cùng lúc, nhưng vẫn được gán theo đúng thứ tự đến.
+
+38
+00:04:15,000 --> 00:04:22,857
+Duyệt tác vụ j theo thứ tự. Đầu tiên, lấy thời gian lớn hơn giữa hiện tại và j.
+
+39
+00:04:22,857 --> 00:04:30,714
+Sau đó, trả mọi máy đã hoàn thành về heap rảnh. Điều kiện là kết thúc nhỏ hơn hoặc bằng thời gian.
+
+40
+00:04:30,714 --> 00:04:38,571
+Nếu heap rảnh vẫn trống, nhảy đến thời điểm hoàn thành sớm nhất.
+
+41
+00:04:38,571 --> 00:04:46,429
+Sau bước nhảy, lại giải phóng tất cả máy đã hoàn thành; không chỉ lấy ra một máy.
+
+42
+00:04:46,429 --> 00:04:54,286
+Lấy đỉnh heap rảnh, ghi chỉ số của máy vào đáp án, rồi tính thời điểm kết thúc mới.
+
+43
+00:04:54,286 --> 00:05:02,143
+Đưa máy đó sang heap bận. Các tác vụ tiếp theo tiếp tục cùng quy trình.
+
+44
+00:05:02,143 --> 00:05:10,000
+Thời gian có thể lên tới bốn mươi tỷ. Trong C++ hoặc Java, cần số nguyên 64 bit.
+
+45
+00:05:10,000 --> 00:05:16,000
+Thứ tự tác vụ được giữ bằng cách duyệt từ trái sang phải.
+
+46
+00:05:16,000 --> 00:05:22,000
+Heap bận cho biết khi nào tiếp tục được; heap rảnh quyết định chọn máy chủ nào.
+
+47
+00:05:22,000 --> 00:05:28,000
+Sau khi nhảy thời gian, giải phóng toàn bộ máy đã xong rồi mới chọn.
+
+48
+00:05:28,000 --> 00:05:34,000
+Độ phức tạp là O của n cộng m nhân log n. Bộ nhớ phụ trợ O của n, chưa tính đáp án.
+
+49
+00:05:34,000 --> 00:05:40,000
+Tách đúng hai loại ưu tiên, bài toán mô phỏng trở thành một lịch sự kiện hiệu quả.

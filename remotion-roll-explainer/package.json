@@ -6,10 +6,14 @@
     "studio": "remotion studio src/index.tsx --no-open",
     "render": "remotion render src/index.tsx TFTRollExplainer out/tft-roll-mechanics-vi.mp4 --codec=h264 --concurrency=4 --browser-executable=/usr/bin/chromium",
     "typecheck": "tsc --noEmit",
-    "validate:data": "tsx scripts/validate-data.ts"
+    "validate:data": "tsx scripts/validate-data.ts",
+    "test:1882": "tsx scripts/process-tasks.test.ts",
+    "captions:1882": "tsx scripts/export-process-tasks.ts",
+    "render:1882": "remotion render src/index.tsx ProcessTasks1882 out/process-tasks-1882-vi.mp4 --codec=h264 --concurrency=4 --browser-executable=/usr/bin/chromium"
   },
   "dependencies": {
     "@fontsource/be-vietnam-pro": "5.2.6",
+    "@remotion/captions": "4.0.536",
     "@remotion/cli": "4.0.536",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.7",

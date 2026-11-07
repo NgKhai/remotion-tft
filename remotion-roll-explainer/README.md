@@ -29,3 +29,7 @@ Studio mặc định chạy ở cổng 3000, có thể chọn cổng khác bằn
 ## Kiểm tra xác suất
 
 `npm run validate:data` xác nhận các hàng tỷ lệ, giá đổi minh họa, bảng lãi, xác suất có ít nhất một tướng bốn vàng trong năm ô, thứ tự captions và thời lượng. Công thức giả định từng ô được rút độc lập.
+
+## Video giải thuật LeetCode 1882
+
+Composition `ProcessTasks1882` giải thích bài Phân công tác vụ bằng hai heap, dài 5:40, captions tiếng Việt. Xem hướng dẫn riêng trong [PROCESS_TASKS_1882.md](PROCESS_TASKS_1882.md). Xuất bằng `npm run render:1882`.
